@@ -1,7 +1,7 @@
 import './QuizGameArea.css'
 import { useState } from 'react'
 import QuizQuestion from '../QuizQuestion/QuizQuestion'
-import { questionsArray } from '../../data/questions'
+import { questionsArray } from '../../data/Questions'
 
 const QuizGameArea = () => {
   const [score, setScore] = useState<number>(0)

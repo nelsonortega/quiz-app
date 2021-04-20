@@ -42,4 +42,3 @@ export const questionsArray: Array<Question> = [
     correctAnswer: Answers.A
   },
 ]
-
