@@ -1,10 +1,14 @@
 import './App.css'
 import React from 'react'
+import QuizGameArea from './components/QuizGameArea/QuizGameArea'
+import Navbar from './components/Navbar/Navbar'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-    </div>
+    <React.Fragment>
+      <Navbar />
+      <QuizGameArea />
+    </React.Fragment>
   )
 }
 
