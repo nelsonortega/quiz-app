@@ -1,6 +1,7 @@
 import './QuizQuestion.css'
 import React, { useState } from 'react'
 import { Answers, Question } from '../../interfaces/IQuestion'
+import AnswerOption from '../AswerOption/AnswerOption'
 
 interface IQuizQuestionProps {
   questions: Array<Question>
@@ -42,22 +43,30 @@ const QuizQuestion = (props: IQuizQuestionProps) => {
           {currentQuestion.question}
         </div>
         <div className="answers">
-          <div className="answer-option">
-            <input type="radio" id={Answers.A} name="answer" checked={answerSelected === Answers.A} onChange={onAnswerSelected}/>
-            <label>{currentQuestion.optionA}</label>
-          </div>
-          <div className="answer-option">
-            <input type="radio" id={Answers.B} name="answer" checked={answerSelected === Answers.B} onChange={onAnswerSelected}/>
-            <label>{currentQuestion.optionB}</label>
-          </div>
-          <div className="answer-option">
-            <input type="radio" id={Answers.C} name="answer" checked={answerSelected === Answers.C} onChange={onAnswerSelected}/>
-            <label>{currentQuestion.optionC}</label>
-          </div>
-          <div className="answer-option">
-            <input type="radio" id={Answers.D} name="answer" checked={answerSelected === Answers.D} onChange={onAnswerSelected}/>
-            <label>{currentQuestion.optionD}</label>
-          </div>
+          <AnswerOption 
+            AnswerID={Answers.A}
+            checked={answerSelected === Answers.A}
+            optionText={currentQuestion.optionA}
+            onAnswerSelected={onAnswerSelected}
+          />
+          <AnswerOption 
+            AnswerID={Answers.B}
+            checked={answerSelected === Answers.B}
+            optionText={currentQuestion.optionB}
+            onAnswerSelected={onAnswerSelected}
+          />
+          <AnswerOption 
+            AnswerID={Answers.C}
+            checked={answerSelected === Answers.C}
+            optionText={currentQuestion.optionC}
+            onAnswerSelected={onAnswerSelected}
+          />
+          <AnswerOption 
+            AnswerID={Answers.D}
+            checked={answerSelected === Answers.D}
+            optionText={currentQuestion.optionD}
+            onAnswerSelected={onAnswerSelected}
+          />
         </div>
       </div>
       <div className="buttons-container">

@@ -21,10 +21,6 @@
   flex-direction: column;
 }
 
-.answer-option {
-  margin-bottom: 10px;
-}
-
 .buttons-container {
   display: flex;
 }
