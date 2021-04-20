@@ -1,11 +1,11 @@
-import React from 'react'
+import './QuizGameArea.css'
 import QuizQuestion from '../QuizQuestion/QuizQuestion'
 
 const QuizGameArea = () => {
   return (
-    <React.Fragment>
+    <div className="game-area-container">
       <QuizQuestion />
-    </React.Fragment>
+    </div>
   )
 }
 

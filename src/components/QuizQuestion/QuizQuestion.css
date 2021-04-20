@@ -1,0 +1,53 @@
+.quiz-container {
+  width: 600px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+}
+
+.question-container {
+  margin: 50px 50px 40px 50px
+}
+
+.question {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.answers {
+  display: flex;
+  font-size: 17px;
+  flex-direction: column;
+}
+
+.answer-option {
+  margin-bottom: 10px;
+}
+
+.buttons-container {
+  display: flex;
+}
+
+.submit-button, .half-chance-button {
+  background-color: rgb(101, 194, 252);
+  color: white;
+  display: block;
+  width: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 25px;
+  font-size: 18px;
+}
+
+.submit-button:hover, .half-chance-button:hover {
+  background-color: rgb(75, 183, 250);
+}
+
+.submit-button {
+  border-bottom-left-radius: 10px;
+}
+
+.half-chance-button {
+  border-bottom-right-radius: 10px;
+}

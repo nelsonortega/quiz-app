@@ -1,10 +1,9 @@
-import React from 'react'
+import './Navbar.css'
 
 const Navbar = () => {
   return (
-    <React.Fragment>
-      <div>hello</div>
-    </React.Fragment>
+    <div className="navbar-container">
+    </div>
   ) 
 }
 

@@ -1,7 +1,6 @@
-import './App.css'
 import React from 'react'
-import QuizGameArea from './components/QuizGameArea/QuizGameArea'
 import Navbar from './components/Navbar/Navbar'
+import QuizGameArea from './components/QuizGameArea/QuizGameArea'
 
 const App = () => {
   return (
