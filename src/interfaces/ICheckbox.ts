@@ -1,0 +1,1 @@
+export type CheckboxOnChange = React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>

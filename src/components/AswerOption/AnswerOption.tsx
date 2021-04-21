@@ -1,11 +1,12 @@
 import './AnswerOption.css'
 import { Answers } from '../../interfaces/IQuestion'
+import { CheckboxOnChange } from '../../interfaces/ICheckbox'
 
 interface IAnswerOptionProps {
   AnswerID: Answers
   checked: boolean
   optionText: string
-  onAnswerSelected: (value: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void
+  onAnswerSelected: (value: CheckboxOnChange) => void
 }
 
 const AnswerOption = (props: IAnswerOptionProps) => {

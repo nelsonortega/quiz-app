@@ -1,7 +1,8 @@
 import './QuizQuestion.css'
 import React, { useState } from 'react'
-import { Answers, Question } from '../../interfaces/IQuestion'
 import AnswerOption from '../AswerOption/AnswerOption'
+import { CheckboxOnChange } from '../../interfaces/ICheckbox'
+import { Answers, Question } from '../../interfaces/IQuestion'
 
 interface IQuizQuestionProps {
   questions: Array<Question>
@@ -19,9 +20,7 @@ const QuizQuestion = (props: IQuizQuestionProps) => {
   const currentQuestion = questions[quantityOfQuestionsAswered]
   const [answerSelected, setAnswerSelected] = useState<Answers | string>(Answers.EMPTY)
 
-  const onAnswerSelected = (value: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setAnswerSelected(value.target.id)
-  }
+  const onAnswerSelected = (value: CheckboxOnChange) => setAnswerSelected(value.target.id)
 
   const validateAnswer = () => {
     if (answerSelected === Answers.EMPTY) {
