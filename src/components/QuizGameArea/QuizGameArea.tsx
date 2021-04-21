@@ -22,7 +22,11 @@ const QuizGameArea = () => {
         />
       </ShowComponent>
       <ShowComponent show={isGameFinished}>
-        <Score score={score} />
+        <Score 
+          score={score} 
+          setScore={setScore}
+          setQuantityOfQuestionsAswered={setQuantityOfQuestionsAswered}
+        />
       </ShowComponent>
     </div>
   )
