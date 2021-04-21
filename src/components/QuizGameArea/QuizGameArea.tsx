@@ -1,7 +1,8 @@
 import './QuizGameArea.css'
 import { useState } from 'react'
-import QuizQuestion from '../QuizQuestion/QuizQuestion'
+import Score from '../Score/Score'
 import { questionsArray } from '../../data/Questions'
+import QuizQuestion from '../QuizQuestion/QuizQuestion'
 import ShowComponent from '../ShowComponent/ShowComponent'
 
 const QuizGameArea = () => {
@@ -21,7 +22,7 @@ const QuizGameArea = () => {
         />
       </ShowComponent>
       <ShowComponent show={isGameFinished}>
-        {score}
+        <Score score={score} />
       </ShowComponent>
     </div>
   )
