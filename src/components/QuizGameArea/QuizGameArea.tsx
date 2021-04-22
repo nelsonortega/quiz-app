@@ -19,7 +19,7 @@ const QuizGameArea = () => {
     if (showAlert === true) {
       alertTimeout = setTimeout(() => {
         setShowAlert(false)
-      }, 3000);
+      }, 3000)
     }
 
     return () => {

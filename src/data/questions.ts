@@ -1,4 +1,4 @@
-import { Answers, Question } from "../interfaces/IQuestion";
+import { Answers, Question } from "../interfaces/IQuestion"
 
 export const questionsArray: Array<Question> = [
   {
