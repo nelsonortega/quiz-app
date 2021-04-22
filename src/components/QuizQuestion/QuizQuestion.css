@@ -47,3 +47,14 @@
 .half-chance-button {
   border-bottom-right-radius: 10px;
 }
+
+.disabled {
+  cursor: auto;
+  color: #eeebeb;
+  background-color: rgb(164, 216, 248);
+}
+
+.disabled:hover {
+  color: #eeebeb;
+  background-color: rgb(164, 216, 248);
+}

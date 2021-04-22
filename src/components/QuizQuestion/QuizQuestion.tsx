@@ -104,7 +104,7 @@ const QuizQuestion = (props: IQuizQuestionProps) => {
       </div>
       <div className="buttons-container">
         <button className="submit-button" onClick={validateAnswer}>Submit</button>
-        <button className="half-chance-button" onClick={halfChance} disabled={halfChanceUsed}>50%</button>
+        <button className={"half-chance-button" + (halfChanceUsed ? ' disabled' : '')} onClick={halfChance} disabled={halfChanceUsed}>50%</button>
       </div>
     </div>
   )
