@@ -1,20 +1,24 @@
 import './QuizQuestion.css'
 import React, { useState } from 'react'
 import AnswerOption from '../AswerOption/AnswerOption'
+import ShowComponent from '../ShowComponent/ShowComponent'
 import { CheckboxOnChange } from '../../interfaces/ICheckbox'
 import { Answers, Question } from '../../interfaces/IQuestion'
-import ShowComponent from '../ShowComponent/ShowComponent'
 
 interface IQuizQuestionProps {
   questions: Array<Question>
   quantityOfQuestionsAswered: number
   setScore: React.Dispatch<React.SetStateAction<number>>
+  setShowAlert: React.Dispatch<React.SetStateAction<boolean>>
   setQuantityOfQuestionsAswered: React.Dispatch<React.SetStateAction<number>>
 }
+
+const NUMBER_OF_OPTIONS = 4
 
 const QuizQuestion = (props: IQuizQuestionProps) => {
   const { setScore } = props
   const { questions } = props
+  const { setShowAlert } = props
   const { quantityOfQuestionsAswered } = props
   const { setQuantityOfQuestionsAswered } = props
 
@@ -28,13 +32,14 @@ const QuizQuestion = (props: IQuizQuestionProps) => {
 
   const validateAnswer = () => {
     if (answerSelected === Answers.EMPTY) {
-      alert('select one')
+      setShowAlert(true)
       return
     }
     
     if (answerSelected === currentQuestion.correctAnswer)
       setScore(prevState => prevState + 1)
 
+    setShowAlert(false)
     setHalfChanceUsed(false)
     setAnswerSelected(Answers.EMPTY)
     setShowOptions([true, true, true, true])
@@ -44,8 +49,8 @@ const QuizQuestion = (props: IQuizQuestionProps) => {
   const halfChance = () => {
     const correctAnswer = parseInt(currentQuestion.correctAnswer)
 
-    let firstRandomNumber = Math.floor(Math.random() * 4)
-    let secondRandomNumber = Math.floor(Math.random() * 4)
+    let firstRandomNumber = Math.floor(Math.random() * NUMBER_OF_OPTIONS)
+    let secondRandomNumber = Math.floor(Math.random() * NUMBER_OF_OPTIONS)
 
     if(firstRandomNumber === secondRandomNumber || firstRandomNumber === correctAnswer || secondRandomNumber === correctAnswer) {
       halfChance()
