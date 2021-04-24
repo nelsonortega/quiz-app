@@ -1,9 +1,10 @@
 import './Score.css'
+import { Dispatch, SetStateAction } from 'react'
 
 interface IScoreProps {
   score: number
-  setScore: Function
-  setQuantityOfQuestionsAswered: Function
+  setScore: Dispatch<SetStateAction<number>>
+  setQuantityOfQuestionsAswered: Dispatch<SetStateAction<number>>
 }
 
 const Score = (props: IScoreProps) => {

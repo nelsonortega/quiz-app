@@ -11,8 +11,8 @@ const QuizGameArea = () => {
   const [showAlert, setShowAlert] = useState<boolean>(false)
   const [quantityOfQuestionsAswered, setQuantityOfQuestionsAswered] = useState<number>(0)
 
-  const isGameFinished = quantityOfQuestionsAswered === questionsArray.length
-  
+  let isGameFinished: boolean = quantityOfQuestionsAswered === questionsArray.length
+
   useEffect(() => {
     let alertTimeout: NodeJS.Timeout
 

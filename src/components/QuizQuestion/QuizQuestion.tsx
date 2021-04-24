@@ -1,16 +1,16 @@
 import './QuizQuestion.css'
-import React, { useState } from 'react'
 import AnswerOption from '../AswerOption/AnswerOption'
 import ShowComponent from '../ShowComponent/ShowComponent'
+import { Dispatch, SetStateAction, useState } from 'react'
 import { CheckboxOnChange } from '../../interfaces/ICheckbox'
 import { Answers, Question } from '../../interfaces/IQuestion'
 
 interface IQuizQuestionProps {
   questions: Array<Question>
   quantityOfQuestionsAswered: number
-  setScore: React.Dispatch<React.SetStateAction<number>>
-  setShowAlert: React.Dispatch<React.SetStateAction<boolean>>
-  setQuantityOfQuestionsAswered: React.Dispatch<React.SetStateAction<number>>
+  setScore: Dispatch<SetStateAction<number>>
+  setShowAlert: Dispatch<SetStateAction<boolean>>
+  setQuantityOfQuestionsAswered: Dispatch<SetStateAction<number>>
 }
 
 const NUMBER_OF_OPTIONS = 4
@@ -22,11 +22,11 @@ const QuizQuestion = (props: IQuizQuestionProps) => {
   const { quantityOfQuestionsAswered } = props
   const { setQuantityOfQuestionsAswered } = props
 
-  const currentQuestion = questions[quantityOfQuestionsAswered]
+  const currentQuestion: Question = questions[quantityOfQuestionsAswered]
 
-  const [halfChanceUsed, setHalfChanceUsed] = useState(false)
-  const [showOptions, setShowOptions] = useState([true, true, true, true])
+  const [halfChanceUsed, setHalfChanceUsed] = useState<boolean>(false)
   const [answerSelected, setAnswerSelected] = useState<Answers | string>(Answers.EMPTY)
+  const [showOptions, setShowOptions] = useState<Array<boolean>>([true, true, true, true])
 
   const onAnswerSelected = (value: CheckboxOnChange) => setAnswerSelected(value.target.id)
 
@@ -47,15 +47,15 @@ const QuizQuestion = (props: IQuizQuestionProps) => {
   }
 
   const halfChance = () => {
-    const correctAnswer = parseInt(currentQuestion.correctAnswer)
+    const correctAnswer: number = parseInt(currentQuestion.correctAnswer)
 
-    let firstRandomNumber = Math.floor(Math.random() * NUMBER_OF_OPTIONS)
-    let secondRandomNumber = Math.floor(Math.random() * NUMBER_OF_OPTIONS)
+    let firstRandomNumber: number = Math.floor(Math.random() * NUMBER_OF_OPTIONS)
+    let secondRandomNumber: number = Math.floor(Math.random() * NUMBER_OF_OPTIONS)
 
     if(firstRandomNumber === secondRandomNumber || firstRandomNumber === correctAnswer || secondRandomNumber === correctAnswer) {
       halfChance()
     } else {
-      const tempShowOptions = showOptions
+      const tempShowOptions: Array<boolean> = showOptions
 
       tempShowOptions[firstRandomNumber] = false
       tempShowOptions[secondRandomNumber] = false
