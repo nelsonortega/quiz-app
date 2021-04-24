@@ -2,7 +2,7 @@ import './QuizGameArea.css'
 import Alert from '../Alert/Alert'
 import Score from '../Score/Score'
 import { useEffect, useState } from 'react'
-import { questionsArray } from '../../data/Questions'
+import { questionsArray } from '../../data/QuestionsTest'
 import QuizQuestion from '../QuizQuestion/QuizQuestion'
 import ShowComponent from '../ShowComponent/ShowComponent'
 
