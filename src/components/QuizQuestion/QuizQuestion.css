@@ -45,7 +45,15 @@
 }
 
 .half-chance-button {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   border-bottom-right-radius: 10px;
+}
+
+.uses-remaining {
+  font-size: 16px;
+  margin-top: 5px;
 }
 
 .disabled {

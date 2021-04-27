@@ -6,10 +6,12 @@ import { CheckboxOnChange } from '../../interfaces/ICheckbox'
 import { Answers, Question } from '../../interfaces/IQuestion'
 
 interface IQuizQuestionProps {
+  halfChanceUses: number
   questions: Array<Question>
   quantityOfQuestionsAswered: number
   setScore: Dispatch<SetStateAction<number>>
   setShowAlert: Dispatch<SetStateAction<boolean>>
+  setHalfChanceUses: Dispatch<SetStateAction<number>>
   setQuantityOfQuestionsAswered: Dispatch<SetStateAction<number>>
 }
 
@@ -19,12 +21,12 @@ const QuizQuestion = (props: IQuizQuestionProps) => {
   const { setScore } = props
   const { questions } = props
   const { setShowAlert } = props
-  const { quantityOfQuestionsAswered } = props
-  const { setQuantityOfQuestionsAswered } = props
+  const { halfChanceUses, setHalfChanceUses } = props
+  const { quantityOfQuestionsAswered, setQuantityOfQuestionsAswered } = props
 
   const currentQuestion: Question = questions[quantityOfQuestionsAswered]
 
-  const [halfChanceUsed, setHalfChanceUsed] = useState<boolean>(false)
+  const [isHalfChanceUsed, setIsHalfChanceUsed] = useState<boolean>(false)
   const [answerSelected, setAnswerSelected] = useState<Answers | string>(Answers.EMPTY)
   const [showOptions, setShowOptions] = useState<Array<boolean>>([true, true, true, true])
 
@@ -40,7 +42,7 @@ const QuizQuestion = (props: IQuizQuestionProps) => {
       setScore(prevState => prevState + 1)
 
     setShowAlert(false)
-    setHalfChanceUsed(false)
+    setIsHalfChanceUsed(false)
     setAnswerSelected(Answers.EMPTY)
     setShowOptions([true, true, true, true])
     setQuantityOfQuestionsAswered(prevState => prevState + 1)
@@ -60,9 +62,10 @@ const QuizQuestion = (props: IQuizQuestionProps) => {
       tempShowOptions[firstRandomNumber] = false
       tempShowOptions[secondRandomNumber] = false
 
-      setHalfChanceUsed(true)
+      setIsHalfChanceUsed(true)
       setAnswerSelected(Answers.EMPTY)
       setShowOptions([...tempShowOptions])
+      setHalfChanceUses(prevState => prevState - 1)
     }
   }
 
@@ -109,7 +112,14 @@ const QuizQuestion = (props: IQuizQuestionProps) => {
       </div>
       <div className="buttons-container">
         <button className="submit-button" onClick={validateAnswer}>Submit</button>
-        <button className={"half-chance-button" + (halfChanceUsed ? ' disabled' : '')} onClick={halfChance} disabled={halfChanceUsed}>50%</button>
+        <button 
+          onClick={halfChance}
+          disabled={isHalfChanceUsed || halfChanceUses === 0}
+          className={"half-chance-button" + (isHalfChanceUsed || halfChanceUses === 0 ? ' disabled' : '')}
+        >
+          50% 
+          <span className="uses-remaining">{halfChanceUses} Uses Remaining</span> 
+        </button>
       </div>
     </div>
   )

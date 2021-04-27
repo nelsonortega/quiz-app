@@ -6,9 +6,12 @@ import { questionsArray } from '../../data/Questions'
 import QuizQuestion from '../QuizQuestion/QuizQuestion'
 import ShowComponent from '../ShowComponent/ShowComponent'
 
+export const HALF_CHANCE_USES = 2
+
 const QuizGameArea = () => {
   const [score, setScore] = useState<number>(0)
   const [showAlert, setShowAlert] = useState<boolean>(false)
+  const [halfChanceUses, setHalfChanceUses] = useState<number>(HALF_CHANCE_USES)
   const [quantityOfQuestionsAswered, setQuantityOfQuestionsAswered] = useState<number>(0)
 
   let isGameFinished: boolean = quantityOfQuestionsAswered === questionsArray.length
@@ -37,6 +40,8 @@ const QuizGameArea = () => {
           setScore={setScore}
           questions={questionsArray}
           setShowAlert={setShowAlert}
+          halfChanceUses={halfChanceUses}
+          setHalfChanceUses={setHalfChanceUses}
           quantityOfQuestionsAswered={quantityOfQuestionsAswered}
           setQuantityOfQuestionsAswered={setQuantityOfQuestionsAswered}
         />
@@ -45,6 +50,7 @@ const QuizGameArea = () => {
         <Score 
           score={score} 
           setScore={setScore}
+          setHalfChanceUses={setHalfChanceUses}
           setQuantityOfQuestionsAswered={setQuantityOfQuestionsAswered}
         />
       </ShowComponent>
