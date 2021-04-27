@@ -1,4 +1,10 @@
 .navbar-container {
   height: 6vh;
+  display: flex;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 0px 200px;
+  align-items: center;
   background-color: rgb(101, 194, 252);
 }
